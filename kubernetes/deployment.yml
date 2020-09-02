@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookingList
+  labels:
+    app: bookingList
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookingList
+  template:
+    metadata:
+      labels:
+        app: bookingList
+    spec:
+      containers:
+        - name: bookingList
+          image: username/bookingList:latest
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: '/actuator/health'
+              port: 8080
+            initialDelaySeconds: 120
+            timeoutSeconds: 2
+            periodSeconds: 5
+            failureThreshold: 5
