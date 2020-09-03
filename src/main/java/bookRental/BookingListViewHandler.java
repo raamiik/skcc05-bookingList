@@ -27,10 +27,19 @@ public class BookingListViewHandler {
                 // view 객체 생성
                 BookingList bookingList = new BookingList();
                 // view 객체에 이벤트의 Value 를 set 함
+
                 bookingList.setBookingId(booked.getBookingId());
                 bookingList.setBookName(booked.getBookName());
                 bookingList.setCustomerId(booked.getCustomerId());
                 bookingList.setBookingStatus(booked.getBookingStatus());
+                /*
+                bookingList.setBookingId(1L);
+                bookingList.setBookName("지대넓얇");
+                bookingList.setCustomerId(1L);
+                bookingList.setBookingStatus("booking");
+                */
+
+            System.out.println("asdfasdfadfasdf");
                 // view 레파지 토리에 save
                 bookingListRepository.save(bookingList);
             }

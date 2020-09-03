@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface BookingListRepository extends CrudRepository<BookingList, Long> {
     Optional<BookingList> findByBookingId(Long bookingID);
 
-  //  List<BookingList> findByUserId(String userId);
+    //  List<BookingList> findByBookingId(Long bookingID);
 
     //void deleteByUserId(String userId);
 
